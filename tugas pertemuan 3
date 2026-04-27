@@ -1,0 +1,72 @@
+
+import kotlin.math.pow
+import kotlin.math.sqrt
+
+// 1. Fungsi Menghitung Jarak Dua Titik
+
+fun hitungJarak(x1: Double, y1: Double, x2: Double, y2: Double): Double {
+    return sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2))
+}
+
+// 2. Fungsi Inline Pangkat
+
+inline fun pangkat(angka: Int, eksponen: Int): Int {
+    return angka.toDouble().pow(eksponen).toInt()
+}
+
+// 3. Kelas Barang
+
+class Barang(
+    var nama: String = "Tidak Diketahui",
+    var harga: Double = 0.0,
+    var jumlah: Int = 0,
+    var diskon: Double = 1.0
+) {
+
+    // Method untuk menampilkan data barang
+    fun tampil() {
+        println("Nama Barang : $nama")
+        println("Harga       : Rp $harga")
+        println("Jumlah      : $jumlah")
+        println("Diskon      : $diskon")
+    }
+
+    // Method untuk menghitung total harga
+    fun hitungTotal(): Double {
+        return harga * jumlah * diskon
+    }
+}
+
+// Fungsi Main
+
+fun main() {
+
+    // Soal 1
+    println("===== MENGHITUNG JARAK =====")
+
+    val jarak1 = hitungJarak(2.0, 3.0, 8.0, 7.0)
+    println("Jarak t1(2,3) ke t2(8,7) = $jarak1")
+
+    val jarak2 = hitungJarak(5.0, 3.0, -8.0, -4.0)
+    println("Jarak t1(5,3) ke t2(-8,-4) = $jarak2")
+
+
+    // Soal 2
+    println("\n===== FUNGSI INLINE PANGKAT =====")
+    println("4 pangkat 3 = ${pangkat(4, 3)}")
+
+
+    // Soal 3
+    println("\n===== KELAS BARANG =====")
+
+    val barang1 = Barang(
+        nama = "Laptop",
+        harga = 8000000.0,
+        jumlah = 2,
+        diskon = 0.9
+    )
+
+    barang1.tampil()
+    println("Total Harga : Rp ${barang1.hitungTotal()}")
+}
+
